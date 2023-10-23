@@ -37,6 +37,7 @@ function setConfigValues(topic, key, value) {
 
   // else: we have a setting we can set
   var escapedKey = key.replaceAll(".", "\\.");
+  $("#" + escapedKey).prop("disabled", value.flags.env_var ? 'Disabled' : '');
   switch (value.type) {
     case "enum (unsigned integer)": // fallthrough
     case "enum (string)": {
@@ -70,7 +71,6 @@ function setConfigValues(topic, key, value) {
     case "string array": {
       // Set input field values from array (if available)
       $("#" + escapedKey).val(value.value.join("\n"));
-
       break;
     }
 
