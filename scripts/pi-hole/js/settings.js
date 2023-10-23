@@ -37,7 +37,7 @@ function setConfigValues(topic, key, value) {
 
   // else: we have a setting we can set
   var escapedKey = key.replaceAll(".", "\\.");
-  $("#" + escapedKey).prop("disabled", value.flags.env_var ? 'Disabled' : '');
+  $("#" + escapedKey).prop("disabled", value.flags.env_var);
   switch (value.type) {
     case "enum (unsigned integer)": // fallthrough
     case "enum (string)": {
@@ -45,6 +45,7 @@ function setConfigValues(topic, key, value) {
       $("#" + escapedKey + " option").remove();
       // Add allowed select items (if available)
       value.allowed.forEach(function (allowedValue) {
+        $("#" + escapedKey + "-" + allowedValue.item).prop("disabled",value.flags.env_var)
         var newopt = $("<option></option>")
           .attr("value", allowedValue.item)
           .text(allowedValue.description);
