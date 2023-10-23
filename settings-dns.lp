@@ -17,7 +17,7 @@ mg.include('scripts/pi-hole/lua/settings_header.lp','r')
     <div class="col-lg-6">
         <div class="box box-warning">
             <div class="box-header with-border">
-                <h1 class="box-title">Upstream DNS Servers</h1>
+                <h1 class="box-title" id="lblDNSupstreams">Upstream DNS Servers</h1>
             </div>
             <div class="box-body">
                 <div class="row">

@@ -537,6 +537,10 @@ function hexDecode(string) {
   return back;
 }
 
+function readOnlySettingIcon(){
+  return '&nbsp;&nbsp;<i class="fas fa-lock text-orange" title="Setting overwritten by an environmental variable are read-only"></i>';
+}
+
 window.utils = (function () {
   return {
     escapeHtml: escapeHtml,
@@ -570,5 +574,6 @@ window.utils = (function () {
     parseQueryString: parseQueryString,
     hexEncode: hexEncode,
     hexDecode: hexDecode,
+    readOnlySettingIcon: readOnlySettingIcon
   };
 })();
